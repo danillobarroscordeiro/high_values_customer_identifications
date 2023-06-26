@@ -1,8 +1,8 @@
 # High customers identification
-![](reports/figures/img.jpg)
+![](reports/figures/insiders_customers.jpg)
 
 ## 1. Introduction
-This is an end-to-end data science project which a clusterization algorithm was used to select most valuable customers in order to create a loyalty program called insiders.
+This is an end-to-end data science project which a clusterization algorithm was used to select most valuable customers in order to create a loyalty program called insiders. Also, a dashboard in Metabase was created to monitoring these customers and their metrics. This dashboard is hosted in a EC2 service provided by AWS.
 
 # 2. Business Problem.
 
@@ -46,6 +46,8 @@ They would like a report answering these questions:
 * Jupyter Lab / Jupyter Notebook
 * Git and Github
 * Sklearn
+* Metabase BI
+* AWS
 
 # 5. Dataset
 
@@ -148,15 +150,17 @@ Creation of a mindmap hypothesis with all variables that could have impact on cu
 # 8. Machine Learning Model Applied and performance
 It was used an embedding space to test some models since in this space data seems to be more organized to make clusters. The UMAP technique was to create a two-dimensional embedding space. After that, some clusterization algorithms were tested to see which get highest silhoutte scores. It was tested K-Means, Gaussian Mixture Model (GMM), Hierarchical clustering (HC) and DBSCAN. In the table below there is silhoutte scores for each model and for each number of clusters.
 
+The model choosen was K-Means with 5 clusters. Its silhoutte score is 0.52. It is possible to see silhoutte plot as show below
 
+![](reports/figures/teste.png)
 
-The model choosen was HC with 6 clusters. Its silhoutte score is 0.50.
+In the plot below one can see the clusters, being insiders cluster number 0.
 
-In the plot below one can see the clusters, being insiders cluster number 4.
-
+![](reports/figures/clusters.png)
 
 In table below there are the median of each characteristics of each cluster.
 
+![](reports/figures/cluster_table.png)
 
 # 9. Business Results
 The business report answering are the following:
@@ -167,14 +171,14 @@ The business report answering are the following:
 
 * How many customers will be part of the program?
 
-    **1122 customers (about 23% of all customers)**
+    **1073 customers (about 25% of all customers)**
 
 * What are the main characteristics of these customers?
 
-    **Median of gross_revenue: £2671.46**\
-    **Median of Recency: 24 days**\
-    **Median of quantity of purchases in one year: 6 purchases**\
-    **Median of quantity of distinct products bought: 150 products**  
+    **Median of gross_revenue: £2984.35**\
+    **Median of Recency: 15 days**\
+    **Median of quantity of purchases in one year: 8 purchases**\
+    **Median of quantity of distinct products bought: 119 products**  
 
 * What revenue percentage comes from Insiders?
    **75% of gross revenue comes from Insiders customers**
@@ -184,10 +188,10 @@ The business report answering are the following:
 
    **The minimum values of each attribute are the following:**
 
-    **- For gross revenue > £2550**\
-    **- For recency days > 81 days**\
+    **- For gross revenue > £1931**\
+    **- For recency days > 32 days**\
     **- For quantity of purchases in a year > 6 purchases**\
-    **- For quantity of unique products > 92 different products**
+    **- For quantity of unique products > 73 different products**
 
 * What are the conditions for a customer to be removed from the Insiders program?
 
@@ -216,6 +220,12 @@ The business report answering are the following:
     **-Cluster 5 (Cluster even more products ) - Cross-selling actions to increase gross revenue and number of distinct products.**
 
     **-Cluster 1 (Cluster more purchases) - Give coupons and discounts.**
+
+
+A dashboard was created in Metabase to monitoring these metrics as it is showed below:
+
+![](reports/figures/dashboard.gif)
+
 
 # 10. Conclusions
 
