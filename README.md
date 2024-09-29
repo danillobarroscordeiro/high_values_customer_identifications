@@ -152,7 +152,7 @@ It was used an embedding space to test some models since in this space data seem
 
 The model choosen was K-Means with 5 clusters. Its silhoutte score is 0.52. It is possible to see silhoutte plot as show below
 
-![](reports/figures/teste.png)
+![](reports/figures/silhoutte.png)
 
 In the plot below one can see the clusters, being insiders cluster number 0.
 
